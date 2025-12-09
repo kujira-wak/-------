@@ -1,0 +1,70 @@
+{
+  "enableCmdLogs": true,
+  "featureToggles": {
+    "cmdLogs": true,
+    "status": true,
+    "diagnostics": true,
+    "jokes": true,
+    "loadingBars": true,
+    "modules": true
+  },
+  "fortunes": [
+    "いいことがあるかもしれないよ",
+    "そろそろもう寝よう",
+    "今から最初に会った人に挨拶しよう",
+    "魔法が使える気分で作業してみよう",
+    "インターネットをやめて河川敷で走ろう",
+    "オムライスを食べよう",
+    "脳内で家の周りの地図を作ろう",
+    "レモンソーダを飲もう",
+    "遠回りをしてみよう",
+    "3分だけ休憩しよう",
+    "流行の音楽を聴こう",
+    "ファンタジー小説を読んでみよう",
+    "海に行こう",
+    "山に行こう"
+  ],
+  "cmdModules": [
+    "omikuji.dll",
+    "luck32.sys",
+    "teaLeaves.dat",
+    "star-chart.cfg",
+    "weather-sync.bin",
+    "mood.board",
+    "future-core.lib"
+  ],
+  "cmdStatusMessages": [
+    "STATUS: {user} の運勢データをインデックス化中...",
+    "SCAN: {user} のオーラファイルをスキャンしています...",
+    "SYNC: 干支テーブルを同期中...",
+    "CACHE: 先祖ログを温めています...",
+    "INFO: GPT-占いモードを起動中...",
+    "CHECK: モチベーション残量を計測中...",
+    "ANALYZE: 猫の気分を参照中...",
+    "FETCH: メロンソーダの在庫APIを叩いています..."
+  ],
+  "cmdDiagMessages": [
+    "DIAG: 乱数エンジンが97%健康です。",
+    "DIAG: ネガティブ思考フィルター稼働中。",
+    "NOTICE: 睡眠不足フラグをfalseに補正。",
+    "INFO: 未来バッファをデフラグ中...",
+    "MEMO: 占いサーバーが珍しく機嫌良さそうです。",
+    "WARN: コーヒー濃度が想定より高めです。"
+  ],
+  "cmdJokes": [
+    "LOG: カレーうどんの汁で未来を占うのは非推奨です。",
+    "ヒント: Ctrl+C で運命をキャンセルしても現実は続きます。",
+    "ジョーク: fortune.exe はいまだにフロッピーから起動していません。",
+    "NOTE: ランダム種に猫の鳴き声を混入中...",
+    "LOG: Windows Update を装う冗談。再起動は要求しません。",
+    "MEMO: あなたのやる気はサーバールームの気温に依存している説。"
+  ],
+  "loadingLabels": [
+    "entropy",
+    "sync",
+    "luck",
+    "oracle",
+    "cache",
+    "signal"
+  ]
+}

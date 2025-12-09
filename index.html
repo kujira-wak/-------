@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>おみくじ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="omikujipage">
+  <div class="crt-overlay" aria-hidden="true"></div>
+  <div class="debug-toggle" aria-live="polite">
+    <label for="themeDebugSelect">表示デバッグ</label>
+    <select id="themeDebugSelect">
+      <option value="auto">Auto</option>
+      <option value="terminal">Terminal</option>
+      <option value="cmd">CMD</option>
+    </select>
+    <label for="osDebugSelect">OSデバッグ</label>
+    <select id="osDebugSelect">
+      <option value="auto">Auto</option>
+      <option value="windows">Windows 固定</option>
+      <option value="mac">macOS 固定</option>
+      <option value="linux">Linux PC</option>
+      <option value="android">Android (スマホ)</option>
+      <option value="ios">iOS (スマホ)</option>
+      <option value="other">その他デバイス</option>
+    </select>
+  </div>
+  <main class="terminal-shell" role="region" aria-label="ターミナルおみくじ">
+    <div class="cmd-banner" aria-hidden="true">
+      <p>Microsoft Windows [Version 10.0.19045.4738]</p>
+      <p>(c) Microsoft Corporation. All rights reserved.</p>
+    </div>
+    <div class="terminal-bar" aria-hidden="true">
+      <span class="bar-dot red"></span>
+      <span class="bar-dot amber"></span>
+      <span class="bar-dot green"></span>
+      <span class="bar-title">~/omikuji/fortune.sh</span>
+    </div>
+    <h1 class="midashi">運勢確認</h1>
+    <p class="prompt-line" aria-hidden="true">$ fortune --draw</p>
+    <div id="kekka" class="kekka kakusu" role="status" aria-live="polite">
+      <div id="logWindow" class="log-window" aria-live="polite"></div>
+    </div>
+    <div class="inputbox">
+      <label for="namae" class="sr-only">名前を入力</label>
+      <div class="cmd-input-line">
+        <span class="cmd-path-text" aria-hidden="true">C:\Users\You&gt;</span>
+        <span class="cmd-typed-text" aria-live="polite"></span>
+        <span class="cmd-cursor" aria-hidden="true"></span>
+        <input type="text" id="namae" class="nametext" placeholder="名前を記入">
+      </div>
+      <input type="button" id="uranai" class="uranabtn" value="引く">
+    </div>
+    <p class="chui"># 名前を入れて enter してください</p>
+    <p class="os-suggestion" role="status" aria-live="polite"></p>
+    <section id="accessBlockPanel" class="access-block kakusu" aria-live="polite">
+      <article id="accessPanelPc" class="access-panel panel-pc kakusu" data-context-key="pc-os">
+        <header class="panel-hero">
+          <div>
+            <p class="panel-kicker">Unsupported desktop OS</p>
+            <h2>純正 Windows / macOS で再アクセス</h2>
+            <p>現在の PC OS では CMD ログ演出を提供できません。公式ライセンスを導入したマシンで再度アクセスしてください。</p>
+          </div>
+          <div class="panel-chip">PC MODE LOCKED</div>
+        </header>
+        <div class="panel-body pc-body">
+          <ol class="pc-steps">
+            <li>正規の Windows 11 / macOS ライセンスを購入する</li>
+            <li>OS をインストール後、CMD やターミナルを初期化</li>
+            <li>再起動してから本ページを更新すると占いが解放</li>
+          </ol>
+          <div class="promo-grid">
+            <article class="promo-card windows-card">
+              <h3>Windows の魅力</h3>
+              <ul>
+                <li>CMD / PowerShell でログ演出を完全再現</li>
+                <li>ゲームも開発ツールも豊富にそろうエコシステム</li>
+                <li>カスタム PC を組んで自分好みのスペックに調整</li>
+              </ul>
+              <a class="promo-cta" href="https://www.microsoft.com/windows" target="_blank" rel="noopener noreferrer">Windows ライセンスをチェック</a>
+            </article>
+            <article class="promo-card mac-card">
+              <h3>macOS の魅力</h3>
+              <ul>
+                <li>UNIX ベースで開発もクリエイティブ作業も快適</li>
+                <li>Retina ディスプレイでログが鮮明に表示</li>
+                <li>AirDrop / Handoff で端末間の連携がシームレス</li>
+              </ul>
+              <a class="promo-cta" href="https://www.apple.com/jp/mac/" target="_blank" rel="noopener noreferrer">Mac を見てみる</a>
+            </article>
+          </div>
+        </div>
+        <p class="panel-footer">対応 OS を導入した PC からアクセスすると、fortune.exe の全ログとホットキー操作が解禁されます。</p>
+      </article>
+
+      <article id="accessPanelMobile" class="access-panel panel-mobile kakusu" data-context-key="mobile">
+        <div class="mobile-hero">
+          <div class="phone-shell" aria-hidden="true">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <p>&gt; fortune.exe</p>
+              <p>ERR: touch input only</p>
+              <p>TIP: connect to real PC</p>
+            </div>
+          </div>
+          <div class="mobile-copy">
+            <p class="panel-kicker">Mobile sandbox</p>
+            <h2>スマートフォンでは占えません</h2>
+            <p>ログ再生やキーボード操作が前提のため、スマホ・タブレットからは CMD おみくじをロックしています。</p>
+            <ul class="mobile-list">
+              <li>PC を購入し、Windows または macOS をセットアップ</li>
+              <li>外付けキーボードでは解除されません</li>
+              <li>購入後はこのリンクから再アクセス</li>
+            </ul>
+            <a class="mobile-cta" href="https://www.amazon.co.jp/s?k=pc" target="_blank" rel="noopener noreferrer">PC を探す</a>
+          </div>
+        </div>
+      </article>
+
+      <article id="accessPanelOther" class="access-panel panel-other kakusu" data-context-key="other-device">
+        <header class="other-head">
+          <span class="other-icon" aria-hidden="true">⚠️</span>
+          <div>
+            <h2>専用端末以外はセキュリティで遮断</h2>
+            <p>仮想端末 / IoT / 不明デバイスからのアクセスは占いサーバーを保護するため自動的に停止しています。</p>
+          </div>
+        </header>
+        <div class="other-grid">
+          <div class="other-card">
+            <h3>なぜ遮断するの？</h3>
+            <ul>
+              <li>ログ転送経路の暗号化が保証できない</li>
+              <li>乱数シードが外部にリークする恐れ</li>
+              <li>占い DLL が非対応 CPU に最適化されない</li>
+            </ul>
+          </div>
+          <div class="other-card">
+            <h3>推奨環境へ移行</h3>
+            <p>Windows / macOS の純正 PC を用意し、公式ストアから本ページへ再アクセスすると制限が解除されます。</p>
+            <div class="other-links">
+              <a href="https://www.microsoft.com/windows" target="_blank" rel="noopener noreferrer">Windows 公式サイト</a>
+              <a href="https://www.apple.com/jp/mac/" target="_blank" rel="noopener noreferrer">macOS 公式サイト</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+  <script src="script.js"></script>
+ </body>
+</html>
