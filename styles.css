@@ -687,6 +687,42 @@ body::before {
   gap: clamp(18px, 4vw, 26px);
 }
 
+.again-controls {
+  margin-top: clamp(16px, 3vw, 28px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.again-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 32px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: linear-gradient(120deg, rgba(6, 40, 23, 0.9), rgba(8, 74, 41, 0.95));
+  color: var(--terminal-text);
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 12px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.again-btn:hover,
+.again-btn:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 18px rgba(98, 255, 148, 0.25);
+}
+
+.again-note {
+  font-size: 12px;
+  color: var(--terminal-dim);
+  letter-spacing: 0.08em;
+}
+
 .kakusu {
   display: none;
 }

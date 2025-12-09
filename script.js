@@ -73,6 +73,7 @@ let accessPanel = document.getElementById("accessBlockPanel");
 let accessPanelPc = document.getElementById("accessPanelPc");
 let accessPanelMobile = document.getElementById("accessPanelMobile");
 let accessPanelOther = document.getElementById("accessPanelOther");
+let againControls = document.getElementById("againControls");
 const accessPanelMap = {
   "pc-os": accessPanelPc,
   mobile: accessPanelMobile,
@@ -98,6 +99,13 @@ let enableCmdLogs = featureToggles.cmdLogs !== false && defaultConfig.enableCmdL
 let usageAllowed = false;
 let currentThemePreference = "auto";
 let viewportOverrideOs = null;
+
+function toggleAgainControls(show) {
+  if (!againControls) {
+    return;
+  }
+  againControls.classList.toggle("kakusu", !show);
+}
 
 function triggerTerminalFlash(element) {
   if (!element) {
@@ -485,12 +493,14 @@ function updateAccessRestrictionView(os, context = getAccessContext(os)) {
     accessPanel.classList.add("kakusu");
     accessPanel.removeAttribute("data-context");
     panels.forEach((panel) => panel && panel.classList.add("kakusu"));
+    toggleAgainControls(false);
     return;
   }
   accessPanel.classList.remove("kakusu");
   accessPanel.dataset.context = normalizedContext;
   clearCmdTimers();
   clearLogWindow();
+  toggleAgainControls(false);
   panels.forEach((panel) => {
     if (!panel) {
       return;
@@ -746,6 +756,7 @@ function omikujibako() {
   if (hint && !isCmdModeActive()) {
     hint.style.display = "none";
   }
+  toggleAgainControls(true);
 }
 
 let storedMode = "auto";
